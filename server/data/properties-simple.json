@@ -1,0 +1,90 @@
+[
+  {
+    "id": 0,
+    "transactionType": "buy",
+    "location": {
+      "city": "marsaskala",
+      "location": {
+        "lat": 37.421875199999995,
+        "lng": -122.0851173
+      }
+    },
+    "propertyType": "maissonette",
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "kitchen": "yes",
+    "entrance": "private",
+    "yearBuilt": 2005,
+    "price": 200000,
+    "description": "Brand new strictly ground floor, four bedroom maisonette in a new, elegant, residential development in the Paola locality. This property is being sold freehold, on plan, and shall be delivered in shell form. All exteriors and common areas within this development shall be finished to high specifications by the vendor/developer. The involved layout shall comprise of a private and independent entrance hallway leading into a large open kitchen/living/dining space overlooking the vast backyard, the main bathroom, a large double bedroom, and a master bedroom with an ensuite. All bedrooms are also overlooking the backyard. Optional, interconnecting, and lock-up garages are also available. The completion date is the end of 2023. Excellent value for money. Contact the agent for more information.",
+    "images": [
+      "maisonette-1.jpg"
+    ]
+  },
+  {
+    "id": 1,
+    "transactionType": "rent",
+    "location": {
+      "city": "paola",
+      "location": {
+        "lat": 37.421875199999995,
+        "lng": -122.0851173
+      }
+    },
+    "propertyType": "apartment",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "kitchen": "yes",
+    "entrance": "public",
+    "yearBuilt": 2010,
+    "price": 100000,
+    "description": "Brand new strictly ground floor, two bedroom apartment in a new, elegant, residential development in the Paola locality. This property is being sold freehold, on plan, and shall be delivered in shell form. All exteriors and common areas within this development shall be finished to high specifications by the vendor/developer. The involved layout shall comprise of a private and independent entrance hallway leading into a large open kitchen/living/dining space overlooking the vast backyard, the main bathroom, a large double bedroom, and a master bedroom with an ensuite. All bedrooms are also overlooking the backyard. Optional, interconnecting, and lock-up garages are also available. The completion date is the end of 2023. Excellent value for money. Contact the agent for more information.",
+    "images": [
+      "appartment-1.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "transactionType": "buy",
+    "location": {
+      "city": "birzebuggia",
+      "location": {
+        "lat": 37.421875199999995,
+        "lng": -122.0851173
+      }
+    },
+    "propertyType": "garage",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "kitchen": "no",
+    "entrance": "private",
+    "yearBuilt": 2015,
+    "price": 90000,
+    "description": "Brand new strictly ground floor, two bedroom maisonette in a new, elegant, residential development in the Paola locality. This property is being sold freehold, on plan, and shall be delivered in shell form. All exteriors and common areas within this development shall be finished to high specifications by the vendor/developer. The involved layout shall comprise of a private and independent entrance hallway leading into a large open kitchen/living/dining space overlooking the vast backyard, the main bathroom, a large double bedroom, and a master bedroom with an ensuite. All bedrooms are also overlooking the backyard. Optional, interconnecting, and lock-up garages are also available. The completion date is the end of 2023. Excellent value for money. Contact the agent for more information.",
+    "images": [
+      "garage-1.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "transactionType": "rent",
+    "location": {
+      "city": "qormi",
+      "location": {
+        "lat": 37.421875199999995,
+        "lng": -122.0851173
+      }
+    },
+    "propertyType": "penthouse",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "kitchen": "yes",
+    "entrance": "public",
+    "yearBuilt": 2019,
+    "price": 300000,
+    "description": "Brand new strictly ground floor, two bedroom maisonette in a new, elegant, residential development in the Paola locality. This property is being sold freehold, on plan, and shall be delivered in shell form. All exteriors and common areas within this development shall be finished to high specifications by the vendor/developer. The involved layout shall comprise of a private and independent entrance hallway leading into a large open kitchen/living/dining space overlooking the vast backyard, the main bathroom, a large double bedroom, and a master bedroom with an ensuite. All bedrooms are also overlooking the backyard. Optional, interconnecting, and lock-up garages are also available. The completion date is the end of 2023. Excellent value for money. Contact the agent for more information.",
+    "images": [
+      "penthouse-1.jpg"
+    ]
+  }
+]

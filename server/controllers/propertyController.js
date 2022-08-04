@@ -4,6 +4,7 @@ const properties = JSON.parse(
   fs.readFileSync(`${__dirname}/../data/properties-simple.json`)
 );
 
+
 exports.checkID = (req, res, next, val) => {
   console.log(`Property id is: ${val}`);
 
