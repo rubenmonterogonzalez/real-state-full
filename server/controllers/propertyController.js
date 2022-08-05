@@ -1,93 +1,132 @@
-const fs = require('fs');
+const Property = require('./../models/propertyModel');
+const APIFeatures = require('./../utils/apiFeatures');
+// const fs = require('fs');
 
-const properties = JSON.parse(
-  fs.readFileSync(`${__dirname}/../data/properties-simple.json`)
-);
+// const properties = JSON.parse(
+//   fs.readFileSync(`${__dirname}/../data/properties-simple.json`)
+// );
 
 
-exports.checkID = (req, res, next, val) => {
-  console.log(`Property id is: ${val}`);
+// exports.checkID = (req, res, next, val) => {
+//   console.log(`Property id is: ${val}`);
 
-  if (req.params.id * 1 > properties.length) {
-    return res.status(404).json({
+//   if (req.params.id * 1 > properties.length) {
+//     return res.status(404).json({
+//       status: 'fail',
+//       message: 'Invalid ID'
+//     });
+//   }
+//   next();
+// };
+
+// exports.checkBody = (req, res, next) => {
+//   if (!req.body.price) {
+//     return res.status(400).json({
+//       status: 'fail',
+//       message: 'Missing price'
+//     });
+//   }
+//   next();
+// };
+
+exports.getAllProperties = async (req, res) => {
+  try {
+    // EXECUTE QUERY
+    const features = new APIFeatures(Property.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    const properties = await features.query;
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      results: properties.length,
+      data: {
+        properties
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
       status: 'fail',
-      message: 'Invalid ID'
+      message: err
     });
   }
-  next();
 };
 
-exports.checkBody = (req, res, next) => {
-  if (!req.body.price) {
-    return res.status(400).json({
+exports.getProperty = async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        property
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
       status: 'fail',
-      message: 'Missing price'
+      message: err
     });
   }
-  next();
 };
 
-exports.getAllProperties = (req, res) => {
-  console.log(req.requestTime);
+exports.createProperty = async (req, res) => {
+  try {
+    // const newProperty = new Property({})
+    // newProperty.save()
 
-  res.status(200).json({
-    status: 'success',
-    requestedAt: req.requestTime,
-    results: properties.length,
-    data: {
-      properties
-    }
-  });
+    const newProperty = await Property.create(req.body);
+
+    res.status(201).json({
+      status: 'success',
+      data: {
+        property: newProperty
+      }
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err
+    });
+  }
 };
 
-exports.getProperty = (req, res) => {
-  console.log(req.params);
-  const id = req.params.id * 1;
+exports.updateProperty = async (req, res) => {
+  try {
+    const property = await Property.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
 
-  const property = properties.find(el => el.id === id);
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      property
-    }
-  });
+    res.status(200).json({
+      status: 'success',
+      data: {
+        property
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
 };
 
-exports.createProperty = (req, res) => {
-  // console.log(req.body);
+exports.deleteProperty = async (req, res) => {
+  try {
+    await Property.findByIdAndDelete(req.params.id);
 
-  const newId = properties[properties.length - 1].id + 1;
-  const newProperty = Object.assign({ id: newId }, req.body);
-
-  properties.push(newProperty);
-
-  fs.writeFile(
-    `${__dirname}/data/properties-simple.json`,
-    JSON.stringify(properties),
-    err => {
-      res.status(201).json({
-        status: 'success',
-        data: {
-          property: newProperty
-        }
-      });
-    }
-  );
-};
-
-exports.updateProperty = (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    data: {
-      tour: '<Updated property here...>'
-    }
-  });
-};
-
-exports.deleteProperty = (req, res) => {
-  res.status(204).json({
-    status: 'success',
-    data: null
-  });
+    res.status(204).json({
+      status: 'success',
+      data: null
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
 };

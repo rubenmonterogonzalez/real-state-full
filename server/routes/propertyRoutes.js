@@ -3,12 +3,12 @@ const propertyController = require('../controllers/propertyController');
 
 const router = express.Router();
 
-router.param('id', propertyController.checkID);
+// router.param('id', propertyController.checkID);
 
 router
   .route('/')
   .get(propertyController.getAllProperties)
-  .post(propertyController.checkBody, propertyController.createProperty);
+  .post(propertyController.createProperty);
 
 router
   .route('/:id')
